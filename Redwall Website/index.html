@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Fixed Sidebar Layout</title>
+    <style>
+		html, body {
+            height: 100%;
+            margin: 0;
+        }
+		body {
+            margin: 0;
+            font-family: sans-serif;
+        }
+		table{
+			width: 100%;
+		}
+		table, th, td {
+  			border:1px solid black;
+		}
+
+		figure, div, header, section, footer, a {
+            background: silver;
+        }
+        a {
+            color: black;
+            text-decoration: none;
+        }
+		#left {
+			background: #ededed;
+			width: 20%;
+			height: 100%;
+			position: fixed;
+		}
+		#left figure {
+			height: 120px;
+            margin: 0;
+		}
+		#left nav {
+            display: grid;
+            grid-template: repeat(2, auto) / 1fr;
+            grid-gap: 30px;
+            justify-content: center;
+            margin: 30px;
+		}
+		#left nav ul {
+			list-style-type: none;
+            display: grid;
+            grid-template: repeat(4, auto)/ 1fr;
+            grid-gap: 20px;
+			padding: 0;
+		}
+		#left nav ul li a {
+			display: block;
+			width: 100%;
+			padding: 10px 0;
+			text-align: center;
+		}		
+		#right {
+			background: none;
+			width: 74%;
+			margin: 3%;
+			height: auto;
+			position: absolute;
+			right: 0;
+			display:grid;
+			grid-gap: 20px;
+            grid-template-rows: 50px auto auto auto;
+			grid-template-columns: repeat(12, 1fr);			
+		}
+		#right #title {
+			grid-column: 1 / span 12; 
+			/* transition: margin-right 4s ease-in-out; */
+			transition: margin-right 4s ease-in-out;
+		}
+		#right #mainimage {
+			grid-column: 1 / span 6;
+		}		
+		#right #martin {
+			grid-column: 1 / span 4;
+
+		    background-image: url("./martin.png");
+        	width: 200px;
+        	height: 200px;
+    		}
+			#right #martin:hover {
+        	background-image: url("./martinb.png");
+        	width: 250px;
+        	height: 250px;
+		}
+		#right #product2 {
+			grid-column: 5 / span 4;
+		}
+		#right #martin-mathias {
+			grid-column: 9 / span 4;
+			
+		}	
+		#right footer {
+			grid-column: 1 / span 12;
+			text-align: center;
+		}
+		.logo{
+			height: 100%;
+			width: 100%;
+
+		}
+		#abbey{
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+		.span6{
+			grid-column: span 6;
+
+		}
+			#maintext {
+				overflow: auto;
+			}
+			/* #martin {
+        background-image: url("../images/martin.png");
+        width: 200px;
+        height: 200px;
+    }
+
+    		#martin:hover {
+        background-image: url("../images/martinb.png");
+        width: 200px;
+        height: 200px; */
+		/* <img src="./images/Martin Matthias.png" usemap="#image_map"> */
+		#table-container {
+		grid-column: 1 / span 12;
+		}
+		#image-map-container {
+		grid-column: span 8;
+		}
+    </style>
+</head>
+<body>
+    <section id="left">
+	    <nav>
+	        <figure> <img src="martin.png" class="logo"></figure>	    
+		    <ul>
+			    <li><a href="about.html">About the Author &#9998;</a></li>
+			    <li><a href="recipe.html">Redwall Recipes &#127874; </a></li>
+			    <li><a href="https://www.audible.com/series/Redwall-Audiobooks/B006K1R4B6">Redwall Audio Books &#127911;</a></li>
+			    <li><a href="https://www.amazon.com/Redwall-Season-1/dp/B00DIX41HE">Redwall Tv Series &#128250;</a></li>
+				<li><a href="https://www.amazon.com/Complete-Redwall-Set-Bundle-Books/dp/B01LY6RLD1/ref=sr_1_3?dchild=1&keywords=redwall+all+books&qid=1629312794&sr=8-3">Redwall Book Series &#128214; </a></li>
+		    </ul>
+	    </nav>
+    </section>
+    <section id="right">
+	    <header id="title">Redwall Home - I am that is, my sword shall wield for me.</header>
+		
+	    <div id="mainimage"><img src="abbey.png" id="abbey"></div>
+		<div id="maintext" class="span6">The Redwall fantasy saga follows the adventures and life and death struggles of 
+			an eclectic group of anthropomorphic animals living-in Redwall Abbey, 
+			located in Mossflower Woods.<br>The Jacques novels span the many pivotal periods in the storied history of Redwall. 
+			Due to the widely-spaced storylines, few characters span one novel to the next. The 
+			exception is Martin the Warrior, founder of Redwall Abbey, whose adventures and 
+			heroism inspire later Redwall denizens, often as a spiritual vision. The sword of 
+			Martin the Warrior is believed by many characters to be magical, thus the tagline
+			"I am that is, my sword shall wield for me." <br>
+
+			Although the main setting is an abbey, and several characters are referred to as monks 
+			and friars, the series is nearly devoid of religious beliefs or practices.<br></div>
+
+	    <section id="martin">Martin Rollover</section>
+		<div id="image-map-container"><img src="./Martin Matthias.png" usemap="#image_map"></div>
+		
+		<map name="image_map">
+			<area alt="Martin" title="Martin" href="https://en.wikipedia.org/wiki/Martin_the_Warrior" coords="29,39,253,297" shape="rect">
+			<area alt="Mathias" title="Mathias" href="https://en.wikipedia.org/wiki/Redwall_(novel)" coords="291,72,504,294" shape="rect">
+			<area alt="Sword" title="Sword" href="https://www.youtube.com/watch?v=zSfTavc0lIk" coords="251,1,289,646" shape="rect">
+		  </map>
+
+	    <section id="table-container">
+			<table>
+				<tr>
+					<th colspan="2"> Redwall Series Books </th>
+				</tr>
+				<tr>
+					<td> 1 </td>
+					<td> Lord Brocktree </td>
+				</tr>
+				<tr>
+					<td> 2 </td>
+					<td> The Legend of Luke </td>
+				</tr>
+				<tr>
+					<td> 3 </td>
+					<td> Martin the Warrior </td>
+				</tr>
+				<tr>
+					<td> 4 </td>
+					<td> Mossflower </td>
+				</tr>
+				<tr>
+					<td> 5 </td>
+					<td> Outcast of Redwall </td>
+				</tr>
+				<tr>
+					<td> 6 </td>
+					<td> Mariel of Redwall </td>
+				</tr>
+				<tr>
+					<td> 7 </td>
+					<td> The Bellmaker </td>
+				</tr>
+				<tr>
+					<td>8 </td>
+					<td> Salamandastron </td>
+				</tr>
+				<tr>
+					<td> 9 </td>
+					<td> Redwall </td>
+				</tr>
+				<tr>
+					<td> 10 </td>
+					<td> Mattimeo </td>
+				</tr>
+				<tr>
+					<td> 11 </td>
+					<td> Pearls of Lutra </td>
+				</tr>
+				<tr>
+					<td> 12 </td>
+					<td> The Long Patrol </td>
+				</tr>
+				<tr>
+					<td> 13 </td>
+					<td> Marlfox</td>
+				</tr>
+				<tr>
+					<td> 14 </td>
+					<td> The Taggerung </td>
+				</tr>
+				<tr>
+					<td> 15 </td>
+					<td> Triss </td>
+				</tr>
+			</table>
+			
+		</section>
+	    <!-- <section id="martin-mathias">Martin-sword-Mathias</section> -->
+
+	    <footer>
+		    <p>&copy; Bob's Almost, Purrrfect Redwall Site</p>
+	    </footer>
+    </section>
+</body>
+</html>
